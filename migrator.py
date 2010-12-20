@@ -36,7 +36,7 @@ for i in ghIssues:
         comments = github.issues.comments(ghProject,i.number)
         for c in comments:
             newBody = newBody + "\n\nComment by %s:\n%s" % (c.user, c.body)
-        newBody = newBody + "\nImported from https://github.com/%s/issues#issue/%d" % (ghProject, i.number)
+    newBody = newBody + "\nImported from https://github.com/%s/issues#issue/%d" % (ghProject, i.number)
     if createTicket:
         print "Creating ticket: %s" % i.title
         newTicket = lh.add_ticket(project=project,title=newTitle.encode('utf-8'),body=newBody.encode('utf-8'))
